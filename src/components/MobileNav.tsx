@@ -13,8 +13,10 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
   const pathname = usePathname()
 
   useEffect(() => {
-    if (isOpen) toggleOpen()
-  }, [pathname])
+    if (isOpen) {
+      toggleOpen()
+    }
+  }, [pathname, isOpen]) // Added isOpen as a dependency
 
   const closeOnCurrent = (href: string) => {
     if (pathname === href) {
@@ -98,3 +100,4 @@ const MobileNav = ({ isAuth }: { isAuth: boolean }) => {
 }
 
 export default MobileNav
+
